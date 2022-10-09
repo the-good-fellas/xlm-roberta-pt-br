@@ -4,7 +4,7 @@
 
 ### Modelo de linguagem
 
-:brazil: documentação em Português do Brasil
+:brazil: [Documentação técnica em PT_BR](README_tech_pt_br.MD)
 
 Um modelo de linguagem é uma distribuição de probabilidade sobre sequência de palavras. Dada tal sequência de 
 comprimento m, um modelo de linguagem atribui uma probabilidade P a toda a sequência. 
@@ -97,7 +97,26 @@ basta entrar em contato com os autores conforme indicado no site. Aqui neste rep
 do dataset apenas para fins educaionais sobre o treinamento de um novo modelo.
 
 Para execução dos trabalhos se utilizou o serviço [Datacrunch.io](http://datacrunch.io/). Até o momento da escrita
-deste documento foi o mais em conta encontrado, mas não somente sobre preço, a qualidade das GPUs disponibilizadas é excelente.
+deste documento foi o mais em conta encontrado, mas não somente sobre preço, a qualidade das GPUs disponibilizadas é excelente. Será
+utilizado para treino uma NVIDIA V100 com 16Gb.
 
 Sobre acompanhamento de todo o processo de treinamento se utilizou o [Weights and Bias](http://wandb.ai/).
 
+### Tokenização
+
+Um dos passos para utilização de qualquer modelo no campo de NLP é a tokenização, ou seja, o processo de converter o texto
+em tokens e depois mapear esses todos a números dentro de um vocabulário controlado.
+
+Optou-se por não alterar o vocabulário atualmente utilizado no modelo XLMRobertaBase ou XLMRobertaLarge, mas apenas realizar
+o `fine-tunning` para o Português do Brasil.
+
+### Principais parâmetros
+
+Dá-se o nome de época quando o modelo passa por todos os exemplos disponíveis para treino. Segundo [CITAÇÃO], utilizar poucas
+épocas para realizar o `fine-tunning` de um modelo de linguagem traz resultados satisfatórios, desta forma, este experimento
+realizará o treino usando 2 épocas.
+
+O batch-size, ou seja, quantos exemplos serão enviados ao modelo por vez, será de 64. 
+
+O tamanho máximo de cada exemplo será o máximo aceitado pela arquitetura, que é de 512 tokens. Se o exemplo for menor
+que esse número, ele será preenchido até o final (PAD), se for maior, será truncado.
