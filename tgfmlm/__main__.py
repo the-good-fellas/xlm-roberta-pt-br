@@ -3,7 +3,7 @@ from tgfmlm.brwac_to_hf import brwac_parser
 from tgfmlm.arg_parser import TGFArgs
 
 if __name__ == '__main__':
-  args = TGFArgs.get_params()
+  args = TGFArgs().get_params()
   if args.mode == 'mlm':
     mlm_training(args)
   elif args.mode == 'brwac':
