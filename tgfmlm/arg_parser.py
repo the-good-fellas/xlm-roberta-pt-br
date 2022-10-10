@@ -12,14 +12,15 @@ class TGFArgs:
     parser.add_argument('--wandb_run_id', default="tgf-xlm-roberta-base-pt-br-v1.0.0", type=str)
     parser.add_argument('--wandb_entity', default="tgf", type=str)
     parser.add_argument('--brwac_file', default="assets/brwac.vert", type=str)
-    parser.add_argument('--repo_id', default="goodfellas/brwac", type=str)
+    parser.add_argument('--repo_id', default="goodfellas/brwac_ds", type=str)
     parser.add_argument('--hf_token', type=str)
     parser.add_argument('--model_name', type=str)
     parser.add_argument('--epochs', default=2, type=int)
     parser.add_argument('--batch_size', default=16, type=int)
     parser.add_argument('--gradient_accumulation_steps', default=2, type=int)
-    parser.add_argument('--lr', default=5e-6, type=int)
+    parser.add_argument('--lr', default=1e-4, type=int)
     parser.add_argument('--max_length', default=252, type=int)
+    parser.add_argument('--warmup_steps', default=10000, type=int)
 
     self.opts = parser.parse_args()
 

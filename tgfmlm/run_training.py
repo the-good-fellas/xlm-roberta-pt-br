@@ -1,7 +1,8 @@
-from tgfmlm.custom_trainer import TgfMlmTrainer
+from transformers.training_args import HubStrategy
 from datasets import load_dataset
 from transformers import (
   TrainingArguments,
+  Trainer,
   set_seed,
   XLMRobertaTokenizerFast,
   XLMRobertaConfig,
@@ -53,6 +54,7 @@ def mlm_training(args):
 
   data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=True, mlm_probability=0.15)
 
+  # training
   training_args = TrainingArguments(
     output_dir=args.model_name,
     overwrite_output_dir=True,
@@ -60,19 +62,20 @@ def mlm_training(args):
     per_device_train_batch_size=args.batch_size,
     gradient_accumulation_steps=args.gradient_accumulation_steps,
     gradient_checkpointing=True,
-    optim="adafactor",
-    save_steps=1000,
+    save_steps=10_000,
     save_total_limit=1,
-    warmup_steps=1000,
+    warmup_steps=args.warmup_steps,
     weight_decay=0.01,
     learning_rate=args.lr,
     report_to=["wandb"],
-    logging_steps=500,
+    logging_steps=1_000,
     do_eval=False,
+    push_to_hub=True,
+    hub_strategy=HubStrategy.CHECKPOINT,
     fp16=True
   )
 
-  trainer = TgfMlmTrainer(
+  trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_ds_train,
