@@ -50,7 +50,7 @@ No inicio do treino de um modelo, ele vai dar diversas opções aleatórias para
 com o passar das `épocas` ele vai convergir para uma representação da realidade, ou seja, ele vai `aprender` o que deve
 ser usado no lugar de `<mask>`.
 
-À título de curiosidade, o modelo BERT foi treinado com 16Gb de dados da internet, enquanto que o RoBERTa, com mais de 2Tb.
+À título de curiosidade, o modelo BERT foi treinado com 16Gb de dados da internet, enquanto que o RoBERTa, com 160Gb.
 
 Há diversas arquituras disponíveis oriundas do BERT. A que será utilizada neste estudo será a [XLMRoberta](https://huggingface.co/docs/transformers/model_doc/xlm-roberta). 
 XLM vem do fato desse modelo ter sido treinado com o objetivo de atender a diversas línguas, logo, ele pode ser usado
