@@ -17,16 +17,16 @@ nohup python3 -m tgfmlm -mode mlm \
 --base_model xlm-roberta-base \
 --dataset_id thegoodfellas/brwac_sentences \
 --wandb_project tgf-xlm-roberta-base-pt-br \
---wandb_run_id tgf-xlm-roberta-base-pt-br-dummy \
+--wandb_run_id tgf-xlm-roberta-base-pt-br-v1.0 \
 --wandb_entity thegoodfellas \
 --epochs 2 \
 --batch_size 16 \
 --gradient_accumulation_steps 8 \
 --lr 1e-4 \
---logging_steps 5000 \
---save_steps 5_000 \
+--logging_steps 20 \
+--save_steps 200 \
 --max_length 512 \
---warmup_steps 10_000 \
+--warmup_steps 1_000 \
 --num_proc 30 \
 --hub_model_id thegoodfellas/tgf-xlm-roberta-base-pt-br &
 ```
