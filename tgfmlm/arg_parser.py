@@ -19,8 +19,9 @@ class TGFArgs:
     parser.add_argument('--gradient_accumulation_steps', default=1, type=int)
     parser.add_argument('--lr', default=1e-4, type=float)
     parser.add_argument('--logging_steps', default=1, type=int)
+    parser.add_argument('--save_steps', default=5_000, type=int)
     parser.add_argument('--max_length', default=512, type=int)
-    parser.add_argument('--warmup_steps', default=10000, type=int)
+    parser.add_argument('--warmup_steps', default=24_000, type=int)
     parser.add_argument('--hub_model_id', default='tgf-xlm-roberta-base-pt-br', type=str)
 
     self.opts = parser.parse_args()
