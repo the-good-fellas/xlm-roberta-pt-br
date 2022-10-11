@@ -14,7 +14,6 @@ class TGFArgs:
     parser.add_argument('--wandb_entity', default="thegoodfellas", type=str)
     parser.add_argument('--brwac_file', default="brwac.vert", type=str)
     parser.add_argument('--hf_token', type=str)
-    parser.add_argument('--model_name', type=str)
     parser.add_argument('--epochs', default=2, type=int)
     parser.add_argument('--batch_size', default=1, type=int)
     parser.add_argument('--gradient_accumulation_steps', default=1, type=int)
