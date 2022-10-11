@@ -46,7 +46,7 @@ def mlm_training(args):
   tokenized_ds_train = dataset['train'].map(
     tokenize_function,
     batched=True,
-    num_proc=10,
+    num_proc=args.num_proc,
     remove_columns=['text'],
     load_from_cache_file=True,
   )
