@@ -18,12 +18,6 @@ import os
 def mlm_training(args):
   os.makedirs(args.output_dir, exist_ok=True)
 
-  w_run = wandb.init(
-    project=args.wandb_project,
-    entity=args.wandb_entity,
-    id=args.wandb_run_id
-  )
-
   set_seed(42)
 
   # dataset preparation
@@ -81,6 +75,12 @@ def mlm_training(args):
     output_dir=args.output_dir,
     overwrite_output_dir=True,
     fp16=True
+  )
+
+  w_run = wandb.init(
+    project=args.wandb_project,
+    entity=args.wandb_entity,
+    id=args.wandb_run_id
   )
 
   trainer = TgfMlmTrainer(
