@@ -17,7 +17,7 @@ class TGFArgs:
     parser.add_argument('--epochs', default=2, type=int)
     parser.add_argument('--batch_size', default=1, type=int)
     parser.add_argument('--gradient_accumulation_steps', default=1, type=int)
-    parser.add_argument('--lr', default=1e-4, type=int)
+    parser.add_argument('--lr', default=1e-4, type=float)
     parser.add_argument('--logging_steps', default=1, type=int)
     parser.add_argument('--max_length', default=512, type=int)
     parser.add_argument('--warmup_steps', default=10000, type=int)
