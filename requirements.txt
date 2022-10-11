@@ -1,8 +1,8 @@
 boto3==1.24.71
 tqdm==4.64.1
-datasets==1.12.1
+datasets
 wandb==0.13.4
-transformers==4.22.2
+transformers
 evaluate==0.2.2
 huggingface_hub
 wasabi
