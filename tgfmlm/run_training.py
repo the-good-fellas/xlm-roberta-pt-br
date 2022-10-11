@@ -11,9 +11,12 @@ from transformers import (
   DataCollatorForLanguageModeling
 )
 import wandb
+import os
 
 
 def mlm_training(args):
+  os.makedirs(args.output_dir, exist_ok=True)
+
   w_run = wandb.init(
     project=args.wandb_project,
     entity=args.wandb_entity,
