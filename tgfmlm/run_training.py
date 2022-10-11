@@ -11,6 +11,7 @@ from transformers import (
   DataCollatorForLanguageModeling
 )
 import wandb
+import torch
 import os
 
 
@@ -91,6 +92,7 @@ def mlm_training(args):
     w_run=w_run
   )
 
+  torch.cuda.empty_cache()
   trainer.train()
   trainer.save_model()
   w_run.finish()
