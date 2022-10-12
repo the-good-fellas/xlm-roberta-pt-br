@@ -76,13 +76,15 @@ def mlm_training(args):
     hub_model_id=args.hub_model_id,
     output_dir=args.output_dir,
     overwrite_output_dir=True,
+    resume_from_checkpoint=True,
     fp16=True
   )
 
   w_run = wandb.init(
     project=args.wandb_project,
     entity=args.wandb_entity,
-    id=args.wandb_run_id
+    id=args.wandb_run_id,
+    resume=True
   )
 
   trainer = TgfMlmTrainer(
