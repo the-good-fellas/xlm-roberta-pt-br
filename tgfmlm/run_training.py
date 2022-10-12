@@ -76,7 +76,7 @@ def mlm_training(args):
     hub_model_id=args.hub_model_id,
     output_dir=args.output_dir,
     overwrite_output_dir=True,
-    resume_from_checkpoint=True,
+    resume_from_checkpoint=args.resume,
     fp16=True
   )
 
@@ -84,7 +84,7 @@ def mlm_training(args):
     project=args.wandb_project,
     entity=args.wandb_entity,
     id=args.wandb_run_id,
-    resume=True
+    resume=args.resume
   )
 
   trainer = TgfMlmTrainer(
@@ -97,6 +97,10 @@ def mlm_training(args):
   )
 
   torch.cuda.empty_cache()
-  trainer.train(f'{args.output_dir}/last-checkpoint')
+  if args.resume:
+    trainer.train(f'{args.output_dir}/last-checkpoint')
+  else:
+    trainer.train()
+
   trainer.save_model()
   w_run.finish()

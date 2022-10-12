@@ -28,7 +28,8 @@ nohup python3 -m tgfmlm -mode mlm \
 --max_length 512 \
 --warmup_steps 1_000 \
 --num_proc 50 \
---hub_model_id thegoodfellas/tgf-xlm-roberta-base-pt-br &
+--hub_model_id thegoodfellas/tgf-xlm-roberta-base-pt-br \
+--resume True &
 ```
 
 Acompanhe os logs pelo WandB

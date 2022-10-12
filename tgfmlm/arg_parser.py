@@ -24,6 +24,7 @@ class TGFArgs:
     parser.add_argument('--num_proc', default=20, type=int)
     parser.add_argument('--warmup_steps', default=24_000, type=int)
     parser.add_argument('--hub_model_id', default='tgf-xlm-roberta-base-pt-br', type=str)
+    parser.add_argument('--resume', dest='resume', default=False, action='store_true')
 
     self.opts = parser.parse_args()
 
