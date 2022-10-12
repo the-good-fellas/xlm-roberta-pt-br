@@ -97,6 +97,6 @@ def mlm_training(args):
   )
 
   torch.cuda.empty_cache()
-  trainer.train()
+  trainer.train(f'{args.output_dir}/last-checkpoint')
   trainer.save_model()
   w_run.finish()
