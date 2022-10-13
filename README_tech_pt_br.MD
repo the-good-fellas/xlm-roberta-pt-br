@@ -17,7 +17,7 @@ nohup python3 -m tgfmlm -mode mlm \
 --base_model xlm-roberta-base \
 --dataset_id thegoodfellas/brwac_sentences \
 --wandb_project tgf-xlm-roberta-base-pt-br \
---wandb_run_id tgf-xlm-roberta-base-pt-br-v1.0 \
+--wandb_run_id tgf-xlm-roberta-base-pt-br-v1.2 \
 --wandb_entity thegoodfellas \
 --epochs 2 \
 --batch_size 16 \

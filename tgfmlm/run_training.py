@@ -83,8 +83,7 @@ def mlm_training(args):
   w_run = wandb.init(
     project=args.wandb_project,
     entity=args.wandb_entity,
-    id=args.wandb_run_id,
-    resume=args.resume
+    id=args.wandb_run_id
   )
 
   trainer = TgfMlmTrainer(
