@@ -76,7 +76,7 @@ def mlm_training(args):
     hub_model_id=args.hub_model_id,
     output_dir=args.output_dir,
     overwrite_output_dir=True,
-    resume_from_checkpoint=args.resume,
+    resume_from_checkpoint=True,
     fp16=True
   )
 
@@ -96,10 +96,10 @@ def mlm_training(args):
   )
 
   torch.cuda.empty_cache()
-  if args.resume:
-    trainer.train(f'{args.output_dir}/last-checkpoint')
-  else:
-    trainer.train()
+  # if args.resume:
+  trainer.train(f'{args.output_dir}/last-checkpoint')
+  # else:
+  #   trainer.train()
 
   trainer.save_model()
   w_run.finish()
