@@ -33,4 +33,4 @@ nohup python3 -m tgfmlm -mode mlm \
 --hub_model_id thegoodfellas/tgf-xlm-roberta-base-pt-br &
 ```
 
-Acompanhe os logs pelo WandB
+Acompanhe os logs pelo [WandB](https://wandb.ai/thegoodfellas/tgf-xlm-roberta-base-pt-br/reports/XLM-Roberta-base-Pt-BR--VmlldzoyODEzNjk0/edit)
