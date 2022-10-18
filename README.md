@@ -7,7 +7,7 @@
 Aqui você encontra o código-fonte usado para o fine-tunning do modelo XML-Roberta-base, além de um script para transformar
 o BrWac.vert em um formato adequado para o treino de nosso modelo de linguagem.
 
-Download do modelo e checkpoint:
+Download do modelo: [XLMRoberta-Pt-Br](https://huggingface.co/thegoodfellas/tgf-xlm-roberta-base-pt-br)
 
 ### Execução
 
